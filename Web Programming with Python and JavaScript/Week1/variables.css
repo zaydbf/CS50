@@ -1,0 +1,36 @@
+ul {
+  font-size: 14px;
+  color: purple;
+}
+ul p {
+  color: red;
+}
+
+ol {
+  font-size: 18px;
+  color: purple;
+}
+
+.error, .warning, .success { /* kima el class*/
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px;
+}
+
+.success {
+  /* kima el sous-classe(inheritance)*/
+  background-color: green;
+}
+
+.warning {
+  background-color: orange;
+}
+
+.error {
+  background-color: red;
+}
+
+/*# sourceMappingURL=variables.css.map */
