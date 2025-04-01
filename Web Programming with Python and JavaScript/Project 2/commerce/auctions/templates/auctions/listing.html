@@ -23,5 +23,27 @@
     <img src="{{ listing.image_url }}" alt="{{ listing.title }}" height="500px" width="500px">
     <p>{{ listing.description }}</p>
     <p>Owner : {{ listing.owner }}</p>
-    <h6> {{ listing.price}} DT</h6>
+    <h6>Price :  {{ listing.price}} DT</h6>
+    <h2>Comments</h2>
+    <br/>
+    {% for comment in allComments %}
+        <ul class="list-group">
+            <li class="list-group-item">
+                By <strong>{{ comment.author }}</strong> : {{ comment.message }}
+            </li>
+        </ul>    
+    {% endfor %}
+    {% if user.is_authenticated %}
+        <form action="{% url 'addComment' id=listing.id %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                </br>
+                <label>Add Comment</label>
+                <input type="text" name="newComment" placeholder="Add New Comment">
+                <button type="submit" class="btn btn-warning">Add</button>
+            </div>
+        </form>
+    {% endif %}
+    <br/>
+
 {% endblock %}
