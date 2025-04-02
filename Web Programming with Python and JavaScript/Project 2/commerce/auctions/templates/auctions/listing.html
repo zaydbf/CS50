@@ -1,9 +1,32 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-
-    <div class="row">
-        {% if user.is_authenticated %}
+    {% if message %}
+        {% if update %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+        {% endif %}
+    {% endif %}
+    {% if not listing.is_active and user == listing.price.user and user != listing.owner %}
+        <div class="alert alert-success" role="alert">
+            Congratulations !! You won the Auction for this Bid .
+        </div>
+    {% endif %}
+    
+       
+    <div class="row mx-3">
+        {% if user.is_authenticated and listing.is_active %}
+            {% if isOwner %}
+                <form action="{% url 'closeAuction' id=listing.id %}" method="POST" class="mx-3">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-warning">Close Auction</button>
+                </form>
+            {% endif %}
             {% if isListingInWatchlist %}
                 <form action="{% url 'removeWatchlist' id=listing.id %}" method="POST">
                     {% csrf_token %}
@@ -23,7 +46,18 @@
     <img src="{{ listing.image_url }}" alt="{{ listing.title }}" height="500px" width="500px">
     <p>{{ listing.description }}</p>
     <p>Owner : {{ listing.owner }}</p>
-    <h6>Price :  {{ listing.price}} DT</h6>
+    <h6>Initial Price :  {{ listing.price}} DT</h6>
+    {% if user.is_authenticated and listing.is_active %}
+        <form action="{% url 'addBid' id=listing.id %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                </br>
+                <label>Add Bid</label>
+                <input type="number" min="0" name ="newBid"  id="price" step="0.0001" placeholder="Add new Bid">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    {% endif %}
     <h2>Comments</h2>
     <br/>
     {% for comment in allComments %}
