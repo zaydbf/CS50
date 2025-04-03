@@ -4,29 +4,29 @@
         <title>My Webpage</title>
         <style>
 
-            @keyframes hide {
-                0% {
-                    opacity: 1;
-                    height: 100%;
-                    line-height: 100%;
-                    padding: 20px;
-                    margin-bottom: 10px;
-                }
-                75% {
-                    opacity: 0;
-                    height: 100%;
-                    line-height: 100%;
-                    padding: 20px;
-                    margin-bottom: 10px;
-                }
-                100% {
-                    opacity: 0;
-                    height: 0px;
-                    line-height: 0px;
-                    padding: 0px;
-                    margin-bottom: 0px;
-                }
+           @keyframes hide {
+            0% {
+                opacity: 1;
+                height: 100%;
+                line-height: 100%;
+                padding: 20px;
+                margin-bottom: 10px;
             }
+            75% {
+                opacity: 0;
+                line-height: 100%;
+                padding: 20px;
+                margin-bottom: 10px;
+            }
+
+            100%{
+                opacity: 0;
+                height: 0px;
+                line-height: 0px;
+                padding: 0px;
+                margin-bottom: 0px;
+            }
+           }
 
             .hide  {
                 float: right;
@@ -40,6 +40,7 @@
                 animation-duration: 2s;
                 animation-fill-mode: forwards;
                 animation-play-state: paused;
+
             }
 
             body {
@@ -68,13 +69,14 @@
             // If hide button is clicked, delete the post
             document.addEventListener('click', event => {
                 const element = event.target;
-                if (element.className === 'hide') {
-                    element.parentElement.style.animationPlayState = 'running';
-                    element.parentElement.addEventListener('animationend', () =>  {
+                if (element.className === 'hide'){
+                    element.parentElement.style.animationPlayState ='running';
+                    element.parentElement.addEventListener('animationend', () => {
                         element.parentElement.remove();
-                    });
+                    })
                 }
-            });
+            })
+
 
             // Load next set of posts
             function load() {
