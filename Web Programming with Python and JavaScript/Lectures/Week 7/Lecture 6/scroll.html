@@ -3,17 +3,14 @@
     <head>
         <title>Scroll</title>
         <script>
-
             window.onscroll = () => {
-
-                if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                    document.querySelector('body').style.background = 'green';
-                } else {
-                    document.querySelector('body').style.background = 'white';
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight){
+                    document.querySelector('body').style.background ='green'
                 }
-
-            };
-
+                else{
+                    document.querySelector('body').style.background ='white'
+                }
+            }
         </script>
     </head>
     <body>
