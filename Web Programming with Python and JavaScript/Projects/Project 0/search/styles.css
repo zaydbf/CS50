@@ -9,7 +9,7 @@
     margin: 10px;
 }
 a:link{
-    color: black;
+    color: rgb(83, 77, 77);
     text-decoration: none;
 }
 .center-div{
@@ -21,14 +21,14 @@ a:link{
 .rounded-input{
     display: flex;
     z-index: 3;
-    height: 44px;
+    height: 40px;
     background: #fff;
     border: 1px solid #dfe1e5;
     box-shadow: none;
-    border-radius: 24px;
+    border-radius: 22px;
     margin: 0 auto;
-    width: 584px;
-    max-width: 584px;
+    width: 580px;
+    max-width: 580px;
     margin-top: 30px;
 }
 .btn-google{
@@ -48,20 +48,20 @@ a:link{
     user-select: none;
 }
 .h1-advanced{
-    color: #d93025;
+    color: #8b1810;
     font-size: 20px;
     margin: 25px 35px;
 }
 .line{
-    border-bottom: 1px solid #dfe1e5;
+    border-bottom: 1px solid #c6ccda;
 }
 .h2-advanced{
     color: #3c4043;
-    font-size: 16px;
-    margin: 25px 35px;
+    font-size: 15px;
+    margin: 23px 35px;
 }
 .div-advanced{
-    margin: 50px;
+    margin: 45px;
 } 
 .row-input{
     display: flex;
@@ -73,10 +73,10 @@ a:link{
     width : 200px;
 }
 .right{
-    width: 385px;
+    width: 380px;
 }
 .right{
-    width: 385px;
+    width: 380px;
 }
 .p-advanced{
     font-size: 13px;
